@@ -11,10 +11,10 @@ export const MyPosts = () => {
       </div>
       <div>new post</div>
       <div className={s.posts}>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        <Post message='1 message'/>
+        <Post message='2 message'/>
+        <Post message='3 message'/>
+        <Post message='4 message'/>
       </div>
     </div>
   )
