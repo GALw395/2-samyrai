@@ -1,14 +1,12 @@
 import { MyPosts } from './MyPosts/MyPosts'
 import s from './Profile.module.css'
+import { ProfileInfo } from './ProfileInfo/ProfileInfo'
 
 export const Profile = () => {
   return (
     <div className= {s.content}>
-      <div>
-        <img className={s.imgBG} src="https://static-cse.canva.com/blob/685002/vk1524.aa027f62.avif" alt="" />
-      </div>
+      <ProfileInfo />    
       <MyPosts />
-      <div></div>
     </div>
   )
 }
