@@ -1,17 +1,14 @@
+import { PostPropsType } from '../../..'
 import s from './MyPosts.module.css'
 import { Post } from './Post/Post'
 
-export const MyPosts = () => {
+type MyPostsPropsType = {
+  posts: PostPropsType[]
+}
 
+export const MyPosts = (props: MyPostsPropsType) => {
 
-let posts = [
-  {id: '1', message: 'message #1', likesCount: '12'},
-  {id: '2', message: 'message #2', likesCount: '43'},
-  {id: '3', message: 'message #3', likesCount: '143'},
-  {id: '4', message: 'message #4', likesCount: '43'},
-]
-
-let postsElements =  posts.map( el => <Post message={el.message} likesCount={el.likesCount}/> )
+  let postsElements = props.posts.map(el => <Post message={el.message} likesCount={el.likesCount} />)
 
 
 
@@ -27,7 +24,7 @@ let postsElements =  posts.map( el => <Post message={el.message} likesCount={el.
       </div>
       <div>new post</div>
       <div className={s.posts}>
-          {postsElements}
+        {postsElements}
       </div>
     </div>
   )

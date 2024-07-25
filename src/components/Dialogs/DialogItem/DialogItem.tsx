@@ -1,11 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import s from './../Dialogs.module.css'
+import { DialogItemPropsType } from '../../..'
 
 
-type DialogItemPropsType = {
-    id: string
-    name: string
-}
+
 
 export const DialogItem = (props: DialogItemPropsType) => {
     return (

@@ -1,12 +1,18 @@
+import { PostPropsType } from '../..'
 import { MyPosts } from './MyPosts/MyPosts'
 import s from './Profile.module.css'
 import { ProfileInfo } from './ProfileInfo/ProfileInfo'
 
-export const Profile = () => {
+
+type ProfilePropsType = {
+  posts: PostPropsType[]
+}
+
+export const Profile = (props: ProfilePropsType) => {
   return (
     <div className= {s.content}>
-      <ProfileInfo />    
-      <MyPosts />
+      <ProfileInfo  />    
+      <MyPosts posts={props.posts}/>
     </div>
   )
 }
