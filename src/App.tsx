@@ -4,32 +4,10 @@ import { Dialogs } from './components/Dialogs/Dialogs';
 import { Header } from './components/Header/Header';
 import { Navbar } from './components/Navbar/Navbar';
 import { Profile } from './components/Profile/Profile';
-
+import { stateType } from './redux/state';
 
 type AppPropsType = {
-  appState: StateType
-}
-
-
-type StateType = {
-  posts: PostPropsType[]
-  dialogs: DialogItemPropsType[]
-  messages: MessagePropsType[]
-}
-
-
-export type PostPropsType = {
-  message: string
-  likesCount: string
-}
-
-export type DialogItemPropsType = {
-  id: string
-  name: string
-}
-
-export type MessagePropsType = {
-  message: string
+  state: stateType
 }
 
 const App = (props: AppPropsType) => {
@@ -41,8 +19,8 @@ const App = (props: AppPropsType) => {
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path='/dialogs' render={ () => <Dialogs dialog={props.appState.dialogs} messages={props.appState.messages}/>} />
-          <Route path='/profile' render={ () => <Profile posts={props.appState.posts}/>} />
+          <Route path='/profile' render={ () => <Profile state={props.state.profilePage}/>} />
+          <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogsPage}/>} />
         </div>
 
       </div>

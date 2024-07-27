@@ -1,10 +1,10 @@
 
-import { PostPropsType } from '../../../../App'
+import { postType } from '../../../../redux/state'
 import s from './Post.module.css'
 
 
 
-export const Post = (props: PostPropsType) => {
+export const Post = (props: postType) => {
   return (
 
     <div className={s.item}>
