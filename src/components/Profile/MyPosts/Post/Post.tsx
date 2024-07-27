@@ -3,7 +3,6 @@ import { postType } from '../../../../redux/state'
 import s from './Post.module.css'
 
 
-
 export const Post = (props: postType) => {
   return (
 

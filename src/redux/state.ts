@@ -30,8 +30,15 @@ export type stateType = {
     dialogsPage: dialogsPageType
 } 
 
-export let state: stateType = {
 
+// --------------------------
+
+
+
+
+
+export let state: stateType = {
+    
     profilePage: {
         posts: [
             { message: 'message #1', likesCount: '12' },
@@ -54,4 +61,18 @@ export let state: stateType = {
             { message: 'Hi, Marina' },
         ]
     }
+}
+
+
+
+
+export let addPost = (postMessage: string) => {
+    let newPost = { 
+        message: postMessage, 
+        likesCount: '0' 
+    }
+    state = {...state,  profilePage: {...state.profilePage, posts: [...state.profilePage.posts, newPost]}}  
+    console.log(state.profilePage.posts);
+     
+    // state.profilePage.posts.push(newPost)
 }

@@ -1,18 +1,24 @@
 
 import React from 'react'
-import { profilePageType } from '../../../redux/state'
+import { postType } from '../../../redux/state'
 import s from './MyPosts.module.css'
 import { Post } from './Post/Post'
 
+type MyPostsPropsType = {
+  posts: postType[]
+  addPost: (postMessage: any) => void
+}
 
-export const MyPosts = (props: profilePageType) => {
+
+
+export const MyPosts = (props: MyPostsPropsType) => {
 
   let postsElements = props.posts.map(el => <Post message={el.message} likesCount={el.likesCount} />)
 
   let newPostElement: any = React.createRef()
 
   let addPost = () => {
-    alert(newPostElement.current.value)
+    props.addPost(newPostElement.current.value)
   } 
 
   return (
