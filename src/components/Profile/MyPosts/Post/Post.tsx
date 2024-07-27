@@ -1,4 +1,5 @@
-import { PostPropsType } from '../../../..'
+
+import { PostPropsType } from '../../../../App'
 import s from './Post.module.css'
 
 

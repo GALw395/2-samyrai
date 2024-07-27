@@ -1,4 +1,5 @@
-import { DialogItemPropsType, MessagePropsType } from '../..'
+
+import { DialogItemPropsType, MessagePropsType } from '../../App'
 import { DialogItem } from './DialogItem/DialogItem'
 import s from './Dialogs.module.css'
 import { Message } from './Message/Message'

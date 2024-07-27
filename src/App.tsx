@@ -4,15 +4,33 @@ import { Dialogs } from './components/Dialogs/Dialogs';
 import { Header } from './components/Header/Header';
 import { Navbar } from './components/Navbar/Navbar';
 import { Profile } from './components/Profile/Profile';
-import { DialogItemPropsType, MessagePropsType, PostPropsType } from '.';
 
 
 type AppPropsType = {
+  appState: StateType
+}
+
+
+type StateType = {
   posts: PostPropsType[]
-  dialog: DialogItemPropsType[]
+  dialogs: DialogItemPropsType[]
   messages: MessagePropsType[]
 }
 
+
+export type PostPropsType = {
+  message: string
+  likesCount: string
+}
+
+export type DialogItemPropsType = {
+  id: string
+  name: string
+}
+
+export type MessagePropsType = {
+  message: string
+}
 
 const App = (props: AppPropsType) => {
 
@@ -23,8 +41,8 @@ const App = (props: AppPropsType) => {
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path='/dialogs' render={ () => <Dialogs dialog={props.dialog} messages={props.messages}/>} />
-          <Route path='/profile' render={ () => <Profile posts={props.posts}/>} />
+          <Route path='/dialogs' render={ () => <Dialogs dialog={props.appState.dialogs} messages={props.appState.messages}/>} />
+          <Route path='/profile' render={ () => <Profile posts={props.appState.posts}/>} />
         </div>
 
       </div>

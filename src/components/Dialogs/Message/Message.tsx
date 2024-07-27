@@ -1,4 +1,5 @@
-import { MessagePropsType } from '../../..'
+
+import { MessagePropsType } from '../../../App'
 import s from './../Dialogs.module.css'
 
 
