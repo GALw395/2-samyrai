@@ -1,13 +1,10 @@
 
-import { PostPropsType } from '../../../App'
+import { profilePageType } from '../../../redux/state'
 import s from './MyPosts.module.css'
 import { Post } from './Post/Post'
 
-type MyPostsPropsType = {
-  posts: PostPropsType[]
-}
 
-export const MyPosts = (props: MyPostsPropsType) => {
+export const MyPosts = (props: profilePageType) => {
 
   let postsElements = props.posts.map(el => <Post message={el.message} likesCount={el.likesCount} />)
 
