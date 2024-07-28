@@ -5,14 +5,14 @@ import s from './Dialogs.module.css'
 import { Message } from './Message/Message'
 
 type DialogsPropsType = {
-    state: dialogsPageType
+    dialogsPage: dialogsPageType
 }
 
 export const Dialogs = (props: DialogsPropsType) => {
 
 
-    let dialogElements = props.state.dialogs.map(el => <DialogItem id={el.id} name={el.name} />)
-    let messagesElements = props.state.messages.map(el => <Message message={el.message} />)
+    let dialogElements = props.dialogsPage.dialogs.map(el => <DialogItem id={el.id} name={el.name} />)
+    let messagesElements = props.dialogsPage.messages.map(el => <Message message={el.message} />)
 
     return (
         <div className={s.dialogs}>
