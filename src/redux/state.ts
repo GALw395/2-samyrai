@@ -1,4 +1,4 @@
-import { rerenderEntireTree } from "../render"
+let rerenderEntireTree: Function
 
 export type profilePageType = {
     posts: postType[]
@@ -73,6 +73,8 @@ export let addPost = () => {
 export let updateNewPostText = (newText: string) => {
     state.profilePage.newPostText = newText    
     rerenderEntireTree({...state})
+}
 
-
+export const subscribe = (observer: any) => {
+    rerenderEntireTree = observer
 }
