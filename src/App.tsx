@@ -8,8 +8,7 @@ import { stateType } from './redux/state';
 
 type AppPropsType = {
   state: stateType
-  addPost: () => void
-  updateNewPostText: (newText: string) => void
+  dispatch: (action: any) => void
 }
 
 const App = (props: AppPropsType) => {
@@ -21,7 +20,7 @@ const App = (props: AppPropsType) => {
         <Navbar />
         <div className="app-wrapper-content">
           <Route path='/dialogs' render={ () => <Dialogs dialogsPage={props.state.dialogsPage}/>} />
-          <Route path='/profile' render={ () => <Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>} />
+          <Route path='/profile' render={ () => <Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/>} />
         </div>
 
       </div>
