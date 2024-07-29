@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { postType } from '../../../redux/state'
+import { addPostAC, postType, updateNewPostTextAC } from '../../../redux/state'
 import s from './MyPosts.module.css'
 import { Post } from './Post/Post'
 
@@ -15,18 +15,16 @@ type MyPostsPropsType = {
 export const MyPosts = (props: MyPostsPropsType) => {
 
   let postsElements = props.posts.map(el => <Post message={el.message} likesCount={el.likesCount} />)
-
   let newPostElement: any = React.createRef()
+  
 
   let addPost = () => {
-    props.dispatch({type: 'ADD-POST'})
+    props.dispatch(addPostAC())
     // props.addPost()
-  }   
-
+  }  
   let onPostChange = () => {
-    props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: newPostElement.current.value})
+    props.dispatch(updateNewPostTextAC(newPostElement.current.value))
     // props.updateNewPostText(newPostElement.current.value)
-
   }
 
   return (

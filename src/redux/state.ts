@@ -1,5 +1,6 @@
 
-
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
 
 
@@ -114,3 +115,9 @@ export let store: storeType = {
     }
 
 }
+
+
+
+export const addPostAC = () => ({ type: ADD_POST })
+export const updateNewPostTextAC = (newPostElement: string) =>
+    ({ type: UPDATE_NEW_POST_TEXT, newText: newPostElement })
