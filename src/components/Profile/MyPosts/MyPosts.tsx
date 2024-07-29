@@ -20,11 +20,9 @@ export const MyPosts = (props: MyPostsPropsType) => {
 
   let addPost = () => {
     props.dispatch(addPostAC())
-    // props.addPost()
   }  
   let onPostChange = () => {
     props.dispatch(updateNewPostTextAC(newPostElement.current.value))
-    // props.updateNewPostText(newPostElement.current.value)
   }
 
   return (

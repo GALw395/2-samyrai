@@ -2,6 +2,8 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
+const UPDATE_MESSAGE = 'UPDATE-MESSAGE'
+const SEND_MESSAGE = 'SEND-MESSAGE'
 
 
 
@@ -19,6 +21,7 @@ export type postType = {
 export type dialogsPageType = {
     dialogs: dialogType[]
     messages: messageType[]
+    newMessageText: string
 }
 export type dialogType = {
     id: string
@@ -72,7 +75,8 @@ export let store: storeType = {
                 { message: 'Hi, Nastia' },
                 { message: 'Hi, Lexa' },
                 { message: 'Hi, Marina' },
-            ]
+            ],
+            newMessageText: ''
         }
     },
     _callSubscriber(state: stateType) { },
@@ -97,27 +101,31 @@ export let store: storeType = {
 
     dispatch(action) {
         if (action.type === 'ADD-POST') {
-            // this._addPost()
-
             let newPost = { message: this._state.profilePage.newPostText, likesCount: '0' }
             this._state = { ...this._state, profilePage: { ...this._state.profilePage, posts: [...this._state.profilePage.posts, newPost] } }
             this._state.profilePage.newPostText = ''
             this._callSubscriber(this._state)
-
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            // this._updateNewPostText(action.newText)
-
             this._state.profilePage.newPostText = action.newText
             this._callSubscriber({ ...this._state })
-
+        } else if (action.type === UPDATE_MESSAGE) {
+            this._state.dialogsPage.newMessageText = action.newMessage
+            this._callSubscriber({ ...this._state })
+        } else if (action.type === SEND_MESSAGE) {
+            let newMessage = { message: this._state.dialogsPage.newMessageText}
+            this._state = {...this._state, dialogsPage: { ...this._state.dialogsPage, messages: [...this._state.dialogsPage.messages, newMessage] }}
+            this._state.dialogsPage.newMessageText = ''
+            this._callSubscriber({ ...this._state })
         }
 
     }
 
 }
-
-
-
 export const addPostAC = () => ({ type: ADD_POST })
 export const updateNewPostTextAC = (newPostElement: string) =>
     ({ type: UPDATE_NEW_POST_TEXT, newText: newPostElement })
+
+
+export const updateMessageAC = (message: string) => ({ type: UPDATE_MESSAGE, newMessage: message })
+
+export const sendMessageAC = () => ({ type: SEND_MESSAGE })
