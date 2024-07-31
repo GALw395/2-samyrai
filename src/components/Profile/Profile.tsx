@@ -1,5 +1,5 @@
 
-import { profilePageType } from '../../redux/state'
+import { profilePageType } from '../../redux/store'
 import { MyPosts } from './MyPosts/MyPosts'
 import s from './Profile.module.css'
 import { ProfileInfo } from './ProfileInfo/ProfileInfo'

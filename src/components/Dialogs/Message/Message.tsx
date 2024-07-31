@@ -1,5 +1,5 @@
 
-import { messageType } from '../../../redux/state'
+import { messageType } from '../../../redux/store'
 import s from './../Dialogs.module.css'
 
 

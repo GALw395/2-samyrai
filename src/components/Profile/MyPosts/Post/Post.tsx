@@ -1,5 +1,5 @@
 
-import { postType } from '../../../../redux/state'
+import { postType } from '../../../../redux/store'
 import s from './Post.module.css'
 
 

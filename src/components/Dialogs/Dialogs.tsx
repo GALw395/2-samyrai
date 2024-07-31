@@ -1,7 +1,7 @@
 
 
 import { ChangeEvent } from 'react'
-import { dialogsPageType } from '../../redux/state'
+import { dialogsPageType } from '../../redux/store'
 import { DialogItem } from './DialogItem/DialogItem'
 import s from './Dialogs.module.css'
 import { Message } from './Message/Message'
