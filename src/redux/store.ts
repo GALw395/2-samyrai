@@ -35,7 +35,7 @@ export type stateType = {
 
 // --------------------------
 
-type storeType = {
+export type storeType = {
     _state: stateType
     getState: () => stateType
     _callSubscriber: (state: any) => void

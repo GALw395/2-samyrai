@@ -3,12 +3,12 @@ import React from 'react'
 import { postType } from '../../../redux/store'
 import s from './MyPosts.module.css'
 import { Post } from './Post/Post'
-import { addPostAC, updateNewPostTextAC } from '../../../redux/profile-reducer'
 
 type MyPostsPropsType = {
+  updateNewPostText: (test: string) => void
+  addPost: () => void
   posts: postType[]
   newPostText: string
-  dispatch: (action: any) => void
 }
 
 
@@ -19,11 +19,11 @@ export const MyPosts = (props: MyPostsPropsType) => {
   let newPostElement: any = React.createRef()
   
 
-  let addPost = () => {
-    props.dispatch(addPostAC())
+  let onAddPost = () => {
+    props.addPost()
   }  
   let onPostChange = () => {
-    props.dispatch(updateNewPostTextAC(newPostElement.current.value))
+    props.updateNewPostText(newPostElement.current.value)
   }
 
   return (
@@ -34,7 +34,7 @@ export const MyPosts = (props: MyPostsPropsType) => {
         <div>
           <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}></textarea>
         </div>
-        <button  onClick={ addPost } >Add new post</button>
+        <button  onClick={ onAddPost } >Add new post</button>
       </div>
       <div>new post</div>
       <div className={s.posts}>
