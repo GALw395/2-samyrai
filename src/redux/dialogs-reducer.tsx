@@ -26,17 +26,11 @@ export const dialogsReducer = (state = initialStare, action: any) => {
 
             return {...state, newMessageText: action.newMessage}
 
-            // state.newMessageText = action.newMessage
-            // return state
-
         case SEND_MESSAGE:
 
             let newMessage = { message: state.newMessageText }
             return {...state, messages: [...state.messages, newMessage], newMessageText: ''}
-
-            // state.messages.push(newMessage)
-            // state.newMessageText = ''
-            // return state
+            
         default:
             return state
     }
