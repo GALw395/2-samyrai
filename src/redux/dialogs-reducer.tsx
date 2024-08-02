@@ -33,17 +33,6 @@ export const dialogsReducer = (state = initialStare, action: any) => {
         default:
             return state
     }
-
-
-
-    // if (action.type === UPDATE_MESSAGE) {
-    //     state.newMessageText = action.newMessage
-    // } else if (action.type === SEND_MESSAGE) {
-    //     let newMessage = { message: state.newMessageText }
-    //     state.messages.push(newMessage)
-    //     state.newMessageText = ''
-    // }
-    // return state
 }
 
 
